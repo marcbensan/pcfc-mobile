@@ -1,11 +1,11 @@
 import { Avatar, Button, Card, Text } from "react-native-paper";
 
-const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
+const photo = require("../../assets/waitAndSee.png");
 
 const CardComponent = () => (
-  <Card style={{ margin: 10, elevation: 2 }}>
+  <Card style={{ elevation: 2 }}>
     <Card.Cover
-      source={{ uri: "https://picsum.photos/700" }}
+      source={photo}
       style={{
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
@@ -21,12 +21,11 @@ const CardComponent = () => (
         borderBottomRightRadius: 15,
       }}
     >
-      <Text variant="titleLarge" style={{ marginVertical: 10 }}>In case you missed it</Text>
+      <Text variant="titleLarge" style={{ marginVertical: 10 }}>
+        Wait and See | Pastor Mark Dolor | PCFC
+      </Text>
       <Text variant="bodySmall">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati cum
-        aperiam adipisci consequuntur quae illum magni quisquam quod ipsa vero
-        perferendis, id ea impedit corrupti voluptatibus consequatur voluptatem
-        eaque explicabo!
       </Text>
     </Card.Content>
   </Card>
