@@ -6,6 +6,8 @@ import { youtubeData } from "../data/YoutubeData";
 import EventCard from "../components/EventCard";
 import { event } from "../data/EventData";
 import LifeGroups from "../components/LifeGroupsCard";
+import { ministriesData } from "../data/MinistryData";
+import DailyVerse from "../components/DailyVerse";
 
 const Home = () => {
   return (
@@ -37,7 +39,17 @@ const Home = () => {
       <Text variant="titleLarge" style={{ marginBottom: 5 }}>
         Life Groups
       </Text>
-      <LifeGroups/>
+      <FlatList
+        data={ministriesData}
+        renderItem={({ item }) => (
+          <LifeGroups title={item.title} photo={item.photo} />
+        )}
+        keyExtractor={(item) => item.id}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
+      <Divider style={{ marginVertical: 20 }} />
+      <DailyVerse/>
     </ScrollView>
   );
 };
