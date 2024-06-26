@@ -1,13 +1,15 @@
-import { View, StyleSheet } from "react-native";
+import { View, ImageSourcePropType } from "react-native";
 import { Card, Text } from "react-native-paper";
 
-const LifeGroups = () => (
-  <Card style={{ height: 200, width: 280 }}>
-    <View style={styles.imageContainer}>
-      <Card.Cover
-        source={{ uri: "https://picsum.photos/700" }}
-        style={styles.image}
-      />
+interface lifeGroupsParams {
+  title: string;
+  photo: ImageSourcePropType;
+}
+
+const LifeGroups = ({ title, photo }: lifeGroupsParams) => (
+  <Card style={{ height: 200, width: 280, marginRight: 10 }}>
+    <View>
+      <Card.Cover source={photo} />
       <Text
         variant="titleLarge"
         style={{
@@ -15,25 +17,15 @@ const LifeGroups = () => (
           bottom: 10,
           left: 10,
           color: "white",
+          backgroundColor: "rgba(60, 60, 60, 0.5)",
           paddingHorizontal: 5,
           paddingVertical: 2,
         }}
       >
-        Kids Ministry
+        {title}
       </Text>
     </View>
   </Card>
 );
-
-const styles = StyleSheet.create({
-  imageContainer: {
-    position: "relative",
-  },
-  image: {
-    height: 200,
-    width: 280,
-  },
-  caption: {},
-});
 
 export default LifeGroups;
