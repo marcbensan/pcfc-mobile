@@ -10,7 +10,9 @@ const DailyVerse = () => {
         alignItems: "center",
       }}
     >
-      <Text variant="titleMedium"  style={{marginBottom: 20}}>John 3:16</Text>
+      <Text variant="titleMedium" style={{ marginBottom: 20 }}>
+        John 3:16
+      </Text>
       <Text>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam sequi
         tempore quia fuga, saepe voluptatibus explicabo quas veritatis pariatur
