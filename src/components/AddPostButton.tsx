@@ -1,23 +1,30 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { FAB } from "react-native-paper";
 import { theme } from "../theme/Theme";
 
 const AddPostButton = () => (
-  <FAB
-    icon="plus"
-    size="medium"
-    style={styles.fab}
-    onPress={() => console.log("Pressed")}
-  />
+  <View style={styles.container}>
+    <FAB
+      variant="primary"
+      mode="elevated"
+      icon="plus"
+      animated={true}
+      size="medium"
+      style={styles.fab}
+      onPress={() => console.log("Pressed")}
+    />
+  </View>
 );
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
   fab: {
-    position: "absolute",
     margin: 24,
-    right: 0,
-    bottom: 0,
     backgroundColor: theme.colors.secondary,
   },
 });
