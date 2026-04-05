@@ -1,25 +1,45 @@
+import React from "react";
 import { StyleSheet } from "react-native";
-import { Avatar, Card, Paragraph } from "react-native-paper";
+import { Avatar, Card, Text } from "react-native-paper";
+import { colors, radius, spacing } from "../theme/Theme";
 
-const Post = () => {
-  return (
-    <Card className="m-2">
-      <Card.Title
-        title="John Doe"
-        left={() => (
-          <Avatar.Image size={40} source={require("../../assets/adult.png")} />
-        )}
-      />
-      <Card.Content>
-        <Paragraph numberOfLines={3}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
-          soluta hic eveniet! Molestiae quis consequatur maxime! Quibusdam sit
-          aliquam, similique porro ipsum facere nemo eum quis veritatis, quo
-          numquam repudiandae!
-        </Paragraph>
-      </Card.Content>
-    </Card>
-  );
-};
+const Post = () => (
+  <Card style={styles.card}>
+    <Card.Title
+      title="Anonymous"
+      titleStyle={styles.title}
+      left={() => (
+        <Avatar.Icon size={40} icon="account" style={styles.avatar} />
+      )}
+    />
+    <Card.Content>
+      <Text style={styles.body} numberOfLines={3}>
+        Please pray for my family during this challenging season. We trust in
+        God's faithfulness and provision.
+      </Text>
+    </Card.Content>
+  </Card>
+);
+
+const styles = StyleSheet.create({
+  card: {
+    marginHorizontal: spacing.md,
+    marginVertical: spacing.xs,
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+  },
+  title: {
+    color: colors.text,
+    fontWeight: "600",
+  },
+  avatar: {
+    backgroundColor: colors.surfaceVariant,
+  },
+  body: {
+    color: colors.textSecondary,
+    fontSize: 14,
+    lineHeight: 20,
+  },
+});
 
 export default Post;

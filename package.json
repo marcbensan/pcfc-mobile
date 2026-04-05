@@ -7,7 +7,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "android-clean": "cd android && gradlew clean",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.1",
@@ -27,10 +29,23 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
+    "@testing-library/react-native": "^12.4.3",
+    "@types/jest": "^30.0.0",
     "@types/react": "~18.2.79",
     "@types/react-native": "^0.73.0",
+    "jest-expo": "~51.0.0",
+    "react-test-renderer": "^18.2.0",
     "tailwindcss": "3.3.2",
     "typescript": "~5.3.3"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "setupFiles": [
+      "./jest-setup.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|react-native-paper|react-native-vector-icons|react-native-safe-area-context)"
+    ]
+  }
 }

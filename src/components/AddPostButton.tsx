@@ -1,19 +1,26 @@
-import * as React from "react";
-import { View } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import { FAB } from "react-native-paper";
+import { colors } from "../theme/Theme";
 
 const AddPostButton = () => (
-  <View className="absolute bottom-4 right-4 z-10">
-    <FAB
-      variant="secondary"
-      mode="elevated"
-      icon="plus"
-      animated={true}
-      size="medium"
-      onPress={() => console.log("Pressed")}
-      className="m-3 bg-secondary z-10"
-    />
-  </View>
+  <FAB
+    icon="plus"
+    animated
+    style={styles.fab}
+    color={colors.primary}
+    onPress={() => {}}
+  />
 );
+
+const styles = StyleSheet.create({
+  fab: {
+    position: "absolute",
+    right: 16,
+    bottom: 16,
+    backgroundColor: colors.accent,
+    zIndex: 10,
+  },
+});
 
 export default AddPostButton;

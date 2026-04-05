@@ -1,60 +1,80 @@
-import { Divider, Text } from "react-native-paper";
-import CardComponent from "../components/Card";
-import { FlatList, ScrollView, SectionList, View } from "react-native";
-import SubCardComponent from "../components/SubCard";
-import { youtubeData } from "../data/YoutubeData";
-import EventCard from "../components/EventCard";
-import { event } from "../data/EventData";
-import LifeGroups from "../components/LifeGroupsCard";
-import { ministriesData } from "../data/MinistryData";
+import React from "react";
+import { FlatList, ScrollView, StyleSheet, View } from "react-native";
 import DailyVerse from "../components/DailyVerse";
+import EventCard from "../components/EventCard";
+import FeaturedCard from "../components/FeaturedCard";
+import MinistryCard from "../components/MinistryCard";
+import QuickActions from "../components/QuickActions";
+import SectionHeader from "../components/SectionHeader";
+import VideoCard from "../components/VideoCard";
+import WelcomeBanner from "../components/WelcomeBanner";
+import { events } from "../data/EventData";
+import { ministriesData } from "../data/MinistryData";
+import { youtubeData } from "../data/YoutubeData";
+import { colors, spacing } from "../theme/Theme";
 
-const Home = () => {
-  return (
-    <ScrollView contentContainerStyle={{ padding: 15 }}>
-      <CardComponent />
-      <Text variant="titleLarge" className="mt-8 mb-2">
-        Recently Uploaded
-      </Text>
-      <SectionList
-        sections={[{ title: "", data: youtubeData }]}
-        renderItem={({ item }) => (
-          <SubCardComponent image={item.photo} title={item.title} />
-        )}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
+const VISIBLE_EVENTS = 3;
+
+const Home = () => (
+  <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <WelcomeBanner />
+    <FeaturedCard />
+    <QuickActions />
+
+    <SectionHeader title="Recent Sermons" onSeeAll={() => {}} />
+    <FlatList
+      data={youtubeData}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <VideoCard image={item.photo} title={item.title} />
+      )}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      scrollEnabled={true}
+    />
+
+    <SectionHeader title="Upcoming Events" onSeeAll={() => {}} />
+    {events.slice(0, VISIBLE_EVENTS).map((item) => (
+      <EventCard
+        key={item.id}
+        title={item.title}
+        description={item.description}
+        month={item.month}
+        day={item.day}
       />
-      <Divider className="my-5" />
-      <Text variant="titleLarge" style={{ marginBottom: 5 }}>
-        Events
-      </Text>
-      <SectionList
-        sections={[{ title: "", data: event }]}
-        renderItem={({ item }) => (
-          <EventCard title={item.title} description={item.description} />
-        )}
-      />
-      <Divider className="my-5" />
-      <Text variant="titleLarge" style={{ marginBottom: 5 }}>
-        Life Groups
-      </Text>
-      <SectionList
-        sections={[{ title: "", data: ministriesData }]}
-        renderItem={({ item }) => (
-          <LifeGroups title={item.title} photo={item.photo} />
-        )}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-      />
-      <Divider className="my-5" />
-      <Text variant="titleLarge" style={{ marginBottom: 5 }}>
-        Daily Verse
-      </Text>
-      <DailyVerse />
-    </ScrollView>
-  );
-};
+    ))}
+
+    <SectionHeader title="Life Groups" onSeeAll={() => {}} />
+    <FlatList
+      data={ministriesData}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <MinistryCard title={item.title} photo={item.photo} />
+      )}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      scrollEnabled={true}
+    />
+
+    <SectionHeader title="Verse of the Day" />
+    <DailyVerse />
+
+    <View style={styles.bottomSpacer} />
+  </ScrollView>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
+  content: {
+    padding: spacing.md,
+    paddingTop: spacing.sm,
+  },
+  bottomSpacer: {
+    height: spacing.xl,
+  },
+});
 
 export default Home;
