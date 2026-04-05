@@ -24,7 +24,7 @@ const BottomNav = () => {
       inactiveColor="#efeee9"
       activeColor="white"
       activeIndicatorStyle={{
-        backgroundColor: "#041327",
+        backgroundColor: "#282828",
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
         borderBottomLeftRadius: 8,

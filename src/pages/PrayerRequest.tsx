@@ -5,18 +5,20 @@ import { ScrollView } from "react-native";
 
 const PrayerRequest = () => {
   return (
-    <ScrollView>
+    <>
       <AddPostButton />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-    </ScrollView>
+      <ScrollView>
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+      </ScrollView>
+    </>
   );
 };
 

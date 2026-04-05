@@ -8,35 +8,11 @@ interface subCardValues {
 
 const SubCardComponent = ({ image, title }: subCardValues) => {
   return (
-    <Card
-      style={{
-        elevation: 2,
-        marginRight: 15,
-      }}
-    >
+    <Card className="mr-[15px]">
       <Card.Cover
         source={image}
-        style={{
-          borderTopLeftRadius: 8,
-          borderTopRightRadius: 8,
-          borderBottomLeftRadius: 0,
-          borderBottomRightRadius: 0,
-          width: 180,
-          height: 100,
-        }}
+        className="w-[180px] h-[100px] rounded-t-lg rounded-b-lg"
       />
-      <Card.Content
-        style={{
-          borderTopLeftRadius: 0,
-          borderTopRightRadius: 0,
-          borderBottomLeftRadius: 15,
-          borderBottomRightRadius: 15,
-        }}
-      >
-        <Text variant="titleSmall" style={{ marginLeft: -12, marginTop: 5 }}>
-          {title}
-        </Text>
-      </Card.Content>
     </Card>
   );
 };

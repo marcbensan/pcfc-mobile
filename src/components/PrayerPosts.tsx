@@ -1,16 +1,9 @@
-import { View, StyleSheet } from "react-native";
-import {
-  Card,
-  Avatar,
-  Title,
-  Paragraph,
-  Button,
-  Divider,
-} from "react-native-paper";
+import { StyleSheet } from "react-native";
+import { Avatar, Card, Paragraph } from "react-native-paper";
 
 const Post = () => {
   return (
-    <Card style={styles.card}>
+    <Card className="m-2">
       <Card.Title
         title="John Doe"
         left={() => (
@@ -28,11 +21,5 @@ const Post = () => {
     </Card>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    margin: 10,
-  },
-});
 
 export default Post;

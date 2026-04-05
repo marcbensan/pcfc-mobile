@@ -1,6 +1,6 @@
 import { Divider, Text } from "react-native-paper";
 import CardComponent from "../components/Card";
-import { FlatList, ScrollView, View } from "react-native";
+import { FlatList, ScrollView, SectionList, View } from "react-native";
 import SubCardComponent from "../components/SubCard";
 import { youtubeData } from "../data/YoutubeData";
 import EventCard from "../components/EventCard";
@@ -13,11 +13,11 @@ const Home = () => {
   return (
     <ScrollView contentContainerStyle={{ padding: 15 }}>
       <CardComponent />
-      <Text variant="titleLarge" style={{ marginTop: 35, marginBottom: 5 }}>
+      <Text variant="titleLarge" className="mt-8 mb-2">
         Recently Uploaded
       </Text>
-      <FlatList
-        data={youtubeData}
+      <SectionList
+        sections={[{ title: "", data: youtubeData }]}
         renderItem={({ item }) => (
           <SubCardComponent image={item.photo} title={item.title} />
         )}
@@ -25,22 +25,22 @@ const Home = () => {
         horizontal
         showsHorizontalScrollIndicator={false}
       />
-      <Divider style={{ marginVertical: 20 }} />
+      <Divider className="my-5" />
       <Text variant="titleLarge" style={{ marginBottom: 5 }}>
         Events
       </Text>
-      <FlatList
-        data={event}
+      <SectionList
+        sections={[{ title: "", data: event }]}
         renderItem={({ item }) => (
           <EventCard title={item.title} description={item.description} />
         )}
       />
-      <Divider style={{ marginVertical: 20 }} />
+      <Divider className="my-5" />
       <Text variant="titleLarge" style={{ marginBottom: 5 }}>
         Life Groups
       </Text>
-      <FlatList
-        data={ministriesData}
+      <SectionList
+        sections={[{ title: "", data: ministriesData }]}
         renderItem={({ item }) => (
           <LifeGroups title={item.title} photo={item.photo} />
         )}
@@ -48,8 +48,11 @@ const Home = () => {
         horizontal
         showsHorizontalScrollIndicator={false}
       />
-      <Divider style={{ marginVertical: 20 }} />
-      <DailyVerse/>
+      <Divider className="my-5" />
+      <Text variant="titleLarge" style={{ marginBottom: 5 }}>
+        Daily Verse
+      </Text>
+      <DailyVerse />
     </ScrollView>
   );
 };

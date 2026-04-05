@@ -7,20 +7,12 @@ interface lifeGroupsParams {
 }
 
 const LifeGroups = ({ title, photo }: lifeGroupsParams) => (
-  <Card style={{ height: 200, width: 280, marginRight: 10 }}>
-    <View>
+  <Card className="w-[280px] h-[200px] mr-2.5">
+    <View className="relative">
       <Card.Cover source={photo} />
       <Text
         variant="titleLarge"
-        style={{
-          position: "absolute",
-          bottom: 10,
-          left: 10,
-          color: "white",
-          backgroundColor: "rgba(60, 60, 60, 0.5)",
-          paddingHorizontal: 5,
-          paddingVertical: 2,
-        }}
+        className="absolute bottom-2.5 left-2.5 text-white bg-gray-800/50 px-2 py-1"
       >
         {title}
       </Text>

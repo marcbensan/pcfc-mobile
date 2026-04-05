@@ -6,9 +6,9 @@ export const theme = {
   roundness: 2,
   colors: {
     ...MD3LightTheme.colors,
-    primary: "#072448",
+    primary: "#151515",
     secondary: "#f1e3c1",
-    tertiary: "#212021",
+    tertiary: "#282828",
   },
 };
 
