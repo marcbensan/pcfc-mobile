@@ -12,10 +12,15 @@ import { radius, spacing } from "../theme/Theme";
 interface MinistryCardProps {
   title: string;
   photo: ImageSourcePropType;
+  onPress?: () => void;
 }
 
-const MinistryCard = ({ title, photo }: MinistryCardProps) => (
-  <TouchableRipple onPress={() => {}} borderless style={styles.touchable}>
+const MinistryCard = ({ title, photo, onPress }: MinistryCardProps) => (
+  <TouchableRipple
+    onPress={onPress ?? (() => {})}
+    borderless
+    style={styles.touchable}
+  >
     <ImageBackground
       source={photo}
       style={styles.image}

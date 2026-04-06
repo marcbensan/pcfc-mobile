@@ -68,10 +68,10 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: colors.accent,
-    borderRadius: radius.md,
+    borderRadius: radius.xl,
   },
   buttonLabel: {
-    color: colors.primary,
+    color: colors.accentDark,
     fontWeight: "700",
     fontSize: 16,
   },
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   outlinedButton: {
     borderColor: colors.accent,
-    borderRadius: radius.md,
+    borderRadius: radius.xl,
     borderWidth: 1.5,
   },
   outlinedLabel: {

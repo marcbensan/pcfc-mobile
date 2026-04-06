@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     right: 16,
     bottom: 16,
     backgroundColor: colors.accent,
+    borderRadius: 28,
     zIndex: 10,
   },
 });

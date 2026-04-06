@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { BottomNavigation } from "react-native-paper";
 import Give from "../pages/Give";
-import Home from "../pages/Home";
+import HomeStack from "../pages/HomeStack";
 import PrayerRequest from "../pages/PrayerRequest";
 import { routes } from "../routes/Routes";
 import { colors } from "../theme/Theme";
 
 const renderScene = BottomNavigation.SceneMap({
-  home: Home,
+  home: HomeStack,
   prayers: PrayerRequest,
   give: Give,
 });
@@ -22,10 +22,10 @@ const BottomNav = () => {
       onIndexChange={setIndex}
       renderScene={renderScene}
       inactiveColor={colors.textSecondary}
-      activeColor={colors.text}
+      activeColor={colors.accent}
       activeIndicatorStyle={{
         backgroundColor: colors.tertiary,
-        borderRadius: 8,
+        borderRadius: 20,
       }}
     />
   );

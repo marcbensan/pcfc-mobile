@@ -1,22 +1,23 @@
 import * as React from "react";
-import { Image } from "react-native";
-import { Appbar, useTheme } from "react-native-paper";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { Image, StyleSheet } from "react-native";
+import { Appbar } from "react-native-paper";
+import { colors } from "../theme/Theme";
 
-const Header = () => {
-  const theme = useTheme();
-  return (
-    <Appbar.Header
-      style={{ marginHorizontal: 10, backgroundColor: theme.colors.primary }}
-      elevated={true}
-    >
-      <Image
-        source={require("../../assets/logo.svg")}
-        style={{ width: 30, height: 30, marginRight: "auto" }}
-      />
-      <Icon name="account-outline" size={35} color="white" />
-    </Appbar.Header>
-  );
-};
+const Header = () => (
+  <Appbar.Header style={styles.header} elevated>
+    <Image source={require("../../assets/icon.png")} style={styles.logo} />
+  </Appbar.Header>
+);
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: colors.primary,
+    paddingHorizontal: 16,
+  },
+  logo: {
+    width: 32,
+    height: 32,
+  },
+});
 
 export default Header;

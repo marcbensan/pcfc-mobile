@@ -15,13 +15,20 @@ import { colors, spacing } from "../theme/Theme";
 
 const VISIBLE_EVENTS = 3;
 
-const Home = () => (
+interface HomeProps {
+  navigate: (screen: string, params?: any) => void;
+}
+
+const Home = ({ navigate }: HomeProps) => (
   <ScrollView style={styles.container} contentContainerStyle={styles.content}>
     <WelcomeBanner />
     <FeaturedCard />
     <QuickActions />
 
-    <SectionHeader title="Recent Sermons" onSeeAll={() => {}} />
+    <SectionHeader
+      title="Recent Sermons"
+      onSeeAll={() => navigate("AllSermons")}
+    />
     <FlatList
       data={youtubeData}
       keyExtractor={(item) => item.id}
@@ -33,7 +40,10 @@ const Home = () => (
       scrollEnabled={true}
     />
 
-    <SectionHeader title="Upcoming Events" onSeeAll={() => {}} />
+    <SectionHeader
+      title="Upcoming Events"
+      onSeeAll={() => navigate("AllEvents")}
+    />
     {events.slice(0, VISIBLE_EVENTS).map((item) => (
       <EventCard
         key={item.id}
@@ -41,15 +51,23 @@ const Home = () => (
         description={item.description}
         month={item.month}
         day={item.day}
+        onPress={() => navigate("EventDetail", item)}
       />
     ))}
 
-    <SectionHeader title="Life Groups" onSeeAll={() => {}} />
+    <SectionHeader
+      title="Life Groups"
+      onSeeAll={() => navigate("AllLifeGroups")}
+    />
     <FlatList
       data={ministriesData}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <MinistryCard title={item.title} photo={item.photo} />
+        <MinistryCard
+          title={item.title}
+          photo={item.photo}
+          onPress={() => navigate("LifeGroupDetail", item)}
+        />
       )}
       horizontal
       showsHorizontalScrollIndicator={false}

@@ -8,10 +8,21 @@ interface EventCardProps {
   description: string;
   month: string;
   day: string;
+  onPress?: () => void;
 }
 
-const EventCard = ({ title, description, month, day }: EventCardProps) => (
-  <TouchableRipple onPress={() => {}} borderless style={styles.touchable}>
+const EventCard = ({
+  title,
+  description,
+  month,
+  day,
+  onPress,
+}: EventCardProps) => (
+  <TouchableRipple
+    onPress={onPress ?? (() => {})}
+    borderless
+    style={styles.touchable}
+  >
     <View style={styles.container}>
       <View style={styles.dateBadge}>
         <Text style={styles.month}>{month}</Text>

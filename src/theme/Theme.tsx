@@ -5,12 +5,15 @@ export const colors = {
   surface: "#1A1A1A",
   surfaceVariant: "#242424",
   primary: "#151515",
-  secondary: "#E8D5A3",
+  secondary: "#072448",
   tertiary: "#282828",
   text: "#FFFFFF",
   textSecondary: "#9E9E9E",
-  accent: "#E8D5A3",
+  accent: "#f1e3c1",
+  accentDark: "#072448",
+  accentLight: "#efeee9",
   divider: "#2A2A2A",
+  cardHighlight: "#041327",
 };
 
 export const spacing = {
@@ -22,14 +25,16 @@ export const spacing = {
 };
 
 export const radius = {
-  sm: 8,
-  md: 12,
-  lg: 16,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  full: 9999,
 };
 
 export const theme = {
   ...MD3LightTheme,
-  roundness: 2,
+  roundness: 4,
   colors: {
     ...MD3LightTheme.colors,
     primary: colors.primary,
