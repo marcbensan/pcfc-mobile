@@ -1,19 +1,49 @@
 import { MD3LightTheme } from "react-native-paper";
-import { StyleSheet } from "react-native";
 
-export const theme = {
-  ...MD3LightTheme, // or MD3DarkTheme
-  roundness: 2,
-  colors: {
-    ...MD3LightTheme.colors,
-    primary: "#072448",
-    secondary: "#f1e3c1",
-    tertiary: "#212021",
-  },
+export const colors = {
+  background: "#0F0F0F",
+  surface: "#1A1A1A",
+  surfaceVariant: "#242424",
+  primary: "#151515",
+  secondary: "#072448",
+  tertiary: "#282828",
+  text: "#FFFFFF",
+  textSecondary: "#9E9E9E",
+  accent: "#f1e3c1",
+  accentDark: "#072448",
+  accentLight: "#efeee9",
+  divider: "#2A2A2A",
+  cardHighlight: "#041327",
 };
 
-export const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#212021",
+export const spacing = {
+  xs: 4,
+  sm: 8,
+  md: 16,
+  lg: 24,
+  xl: 32,
+};
+
+export const radius = {
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  full: 9999,
+};
+
+export const theme = {
+  ...MD3LightTheme,
+  roundness: 4,
+  colors: {
+    ...MD3LightTheme.colors,
+    primary: colors.primary,
+    secondary: colors.secondary,
+    tertiary: colors.tertiary,
+    background: colors.background,
+    surface: colors.surface,
+    onSurface: colors.text,
+    onBackground: colors.text,
+    outline: colors.divider,
   },
-});
+};

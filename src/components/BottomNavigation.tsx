@@ -1,34 +1,31 @@
-import * as React from "react";
-import { BottomNavigation, useTheme } from "react-native-paper";
-import Home from "../pages/Home";
-import PrayerRequest from "../pages/PrayerRequest";
+import React, { useState } from "react";
+import { BottomNavigation } from "react-native-paper";
 import Give from "../pages/Give";
+import HomeStack from "../pages/HomeStack";
+import PrayerRequest from "../pages/PrayerRequest";
 import { routes } from "../routes/Routes";
+import { colors } from "../theme/Theme";
+
+const renderScene = BottomNavigation.SceneMap({
+  home: HomeStack,
+  prayers: PrayerRequest,
+  give: Give,
+});
 
 const BottomNav = () => {
-  const [index, setIndex] = React.useState(0);
-  const theme = useTheme();
-
-  const renderScene = BottomNavigation.SceneMap({
-    home: Home,
-    prayers: PrayerRequest,
-    give: Give,
-  });
+  const [index, setIndex] = useState(0);
 
   return (
     <BottomNavigation
-      barStyle={{ backgroundColor: theme.colors.primary }}
+      barStyle={{ backgroundColor: colors.primary }}
       navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
-      inactiveColor="#efeee9"
-      activeColor="white"
+      inactiveColor={colors.textSecondary}
+      activeColor={colors.accent}
       activeIndicatorStyle={{
-        backgroundColor: "#041327",
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
-        borderBottomLeftRadius: 8,
-        borderBottomRightRadius: 8,
+        backgroundColor: colors.tertiary,
+        borderRadius: 20,
       }}
     />
   );
