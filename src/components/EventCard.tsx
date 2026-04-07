@@ -1,7 +1,8 @@
 import React from "react";
 import { Platform, StyleSheet, View } from "react-native";
-import { Text, TouchableRipple } from "react-native-paper";
+import { Text } from "react-native-paper";
 import { colors, radius, spacing } from "../theme/Theme";
+import AnimatedPressable from "./AnimatedPressable";
 
 interface EventCardProps {
   title: string;
@@ -18,10 +19,10 @@ const EventCard = ({
   day,
   onPress,
 }: EventCardProps) => (
-  <TouchableRipple
+  <AnimatedPressable
     onPress={onPress ?? (() => {})}
-    borderless
     style={styles.touchable}
+    scale={0.97}
   >
     <View style={styles.container}>
       <View style={styles.dateBadge}>
@@ -37,7 +38,7 @@ const EventCard = ({
         </Text>
       </View>
     </View>
-  </TouchableRipple>
+  </AnimatedPressable>
 );
 
 const styles = StyleSheet.create({

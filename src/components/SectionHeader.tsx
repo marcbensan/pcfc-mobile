@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors, spacing } from "../theme/Theme";
+import AnimatedPressable from "./AnimatedPressable";
 
 interface SectionHeaderProps {
   title: string;
@@ -13,14 +14,15 @@ const SectionHeader = ({ title, onSeeAll }: SectionHeaderProps) => (
   <View style={styles.container}>
     <Text style={styles.title}>{title}</Text>
     {onSeeAll && (
-      <TouchableOpacity
+      <AnimatedPressable
         onPress={onSeeAll}
         testID="see-all-button"
-        style={styles.seeAllButton}
+        scale={0.92}
+        innerStyle={styles.seeAllButton}
       >
         <Text style={styles.seeAll}>See All</Text>
         <Icon name="chevron-right" size={16} color={colors.accent} />
-      </TouchableOpacity>
+      </AnimatedPressable>
     )}
   </View>
 );

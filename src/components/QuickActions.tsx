@@ -1,8 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Text, TouchableRipple } from "react-native-paper";
+import { Text } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors, radius, spacing } from "../theme/Theme";
+import AnimatedPressable from "./AnimatedPressable";
 
 interface QuickActionProps {
   icon: string;
@@ -11,14 +12,14 @@ interface QuickActionProps {
 }
 
 const QuickAction = ({ icon, label, onPress }: QuickActionProps) => (
-  <TouchableRipple onPress={onPress} borderless style={styles.touchable}>
+  <AnimatedPressable onPress={onPress} style={styles.touchable} scale={0.93}>
     <View style={styles.item}>
       <View style={styles.iconContainer}>
         <Icon name={icon} size={24} color={colors.accent} />
       </View>
       <Text style={styles.label}>{label}</Text>
     </View>
-  </TouchableRipple>
+  </AnimatedPressable>
 );
 
 const QuickActions = () => (
@@ -51,6 +52,8 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.md,
     backgroundColor: colors.surface,
     borderRadius: radius.md,
+    borderTopWidth: 2,
+    borderTopColor: colors.accent,
   },
   iconContainer: {
     width: 48,

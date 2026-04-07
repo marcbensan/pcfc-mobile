@@ -6,8 +6,9 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { Text, TouchableRipple } from "react-native-paper";
+import { Text } from "react-native-paper";
 import { radius, spacing } from "../theme/Theme";
+import AnimatedPressable from "./AnimatedPressable";
 
 interface MinistryCardProps {
   title: string;
@@ -16,10 +17,10 @@ interface MinistryCardProps {
 }
 
 const MinistryCard = ({ title, photo, onPress }: MinistryCardProps) => (
-  <TouchableRipple
+  <AnimatedPressable
     onPress={onPress ?? (() => {})}
-    borderless
     style={styles.touchable}
+    scale={0.97}
   >
     <ImageBackground
       source={photo}
@@ -31,7 +32,7 @@ const MinistryCard = ({ title, photo, onPress }: MinistryCardProps) => (
         <Text style={styles.title}>{title}</Text>
       </View>
     </ImageBackground>
-  </TouchableRipple>
+  </AnimatedPressable>
 );
 
 const styles = StyleSheet.create({

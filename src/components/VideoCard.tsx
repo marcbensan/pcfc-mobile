@@ -3,13 +3,13 @@ import {
   Image,
   ImageSourcePropType,
   Platform,
-  Pressable,
   StyleSheet,
   View,
 } from "react-native";
 import { Text } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors, radius, spacing } from "../theme/Theme";
+import AnimatedPressable from "./AnimatedPressable";
 
 // Matches a 16:9 aspect ratio — the standard for video thumbnails
 const CARD_WIDTH = 200;
@@ -24,10 +24,7 @@ interface VideoCardProps {
 }
 
 const VideoCard = ({ image, title, badge, onPress }: VideoCardProps) => (
-  <Pressable
-    onPress={onPress}
-    style={({ pressed }) => [styles.container, pressed && styles.pressed]}
-  >
+  <AnimatedPressable onPress={onPress} style={styles.container} scale={0.97}>
     {/* ── Thumbnail ─────────────────────────────── */}
     <View style={styles.thumbnailWrapper}>
       <Image source={image} style={styles.thumbnail} resizeMode="cover" />
@@ -60,16 +57,13 @@ const VideoCard = ({ image, title, badge, onPress }: VideoCardProps) => (
       </Text>
       <Text style={styles.channel}>PCFC · Sermon</Text>
     </View>
-  </Pressable>
+  </AnimatedPressable>
 );
 
 const styles = StyleSheet.create({
   container: {
     width: CARD_WIDTH,
     marginRight: spacing.md,
-  },
-  pressed: {
-    opacity: 0.75,
   },
 
   // ── Thumbnail ──

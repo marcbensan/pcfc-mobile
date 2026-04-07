@@ -14,6 +14,8 @@ export const colors = {
   accentLight: "#efeee9",
   divider: "#2A2A2A",
   cardHighlight: "#041327",
+  highlight: "#072448",
+  highlightMuted: "#0e2040",
 };
 
 export const spacing = {

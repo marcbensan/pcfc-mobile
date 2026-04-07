@@ -3,13 +3,17 @@ import { StyleSheet } from "react-native";
 import { FAB } from "react-native-paper";
 import { colors } from "../theme/Theme";
 
-const AddPostButton = () => (
+interface AddPostButtonProps {
+  onPress: () => void;
+}
+
+const AddPostButton = ({ onPress }: AddPostButtonProps) => (
   <FAB
     icon="plus"
     animated
     style={styles.fab}
-    color={colors.primary}
-    onPress={() => {}}
+    color={colors.accentDark}
+    onPress={onPress}
   />
 );
 

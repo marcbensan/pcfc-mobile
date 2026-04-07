@@ -1,17 +1,18 @@
 import React from "react";
 import { ImageBackground, Platform, StyleSheet, View } from "react-native";
-import { Text, TouchableRipple } from "react-native-paper";
+import { Text } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors, radius, spacing } from "../theme/Theme";
+import AnimatedPressable from "./AnimatedPressable";
 
 const photo = require("../../assets/waitAndSee.png");
 
 const FeaturedCard = () => (
-  <TouchableRipple
+  <AnimatedPressable
     onPress={() => {}}
-    borderless
     style={styles.touchable}
     testID="featured-card"
+    scale={0.98}
   >
     <ImageBackground
       source={photo}
@@ -30,7 +31,7 @@ const FeaturedCard = () => (
         <Text style={styles.subtitle}>Pastor Mark Dolor · PCFC</Text>
       </View>
     </ImageBackground>
-  </TouchableRipple>
+  </AnimatedPressable>
 );
 
 const styles = StyleSheet.create({

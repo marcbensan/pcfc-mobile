@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: spacing.md,
-    paddingTop: spacing.sm,
+    paddingTop: spacing.lg,
   },
   bottomSpacer: {
     height: spacing.xl,
